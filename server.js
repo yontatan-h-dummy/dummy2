@@ -1,7 +1,6 @@
-const http = require("http");
-const port = process.env.PORT;
-const server = http.createServer((req, res) => {
-  console.log("hit");
-  res.end("<h1>hi</h1>");
-});
-server.listen(port, console.log("listening to " + port));
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => res.send("<h1>HI</h1>"));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log("listening to port: " + PORT));
